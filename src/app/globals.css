@@ -12,6 +12,12 @@
     margin-left: 30px;
     letter-spacing: 20px;
 }
+.tracking-10-no-margin{
+    letter-spacing: 10px;
+}
+.tracking-20-no-margin{
+    letter-spacing: 20px;
+}
 .tracking-50{
     letter-spacing: 50px;
 }
