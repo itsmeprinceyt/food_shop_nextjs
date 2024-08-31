@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link.js";
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function Home() {
   const Home = useRef(null);
@@ -9,6 +9,12 @@ export default function Home() {
   const Featuring = useRef(null);
   const Menu = useRef(null);
   const Contact = useRef(null);
+
+  const [cart, setCart] = useState(0);
+
+  const handleClick = () => {
+    setCart(prev => prev + 1)
+  };
 
   const menu = [
     {
@@ -88,9 +94,12 @@ export default function Home() {
       </div>
 
       {/* Side Profile & Cart */}
-      <div className="z-50 bg-black/70 text-white text-[10px] sm:text-xs right-[5px] sm:right-[20px] top-[20px] transform fixed flex gap-5 rounded-full py-3 px-5 ">
+      <div className="z-[101] bg-black/70 text-white text-[10px] sm:text-xs right-[5px] sm:right-[20px] top-[20px] transform fixed flex gap-5 rounded-full py-3 px-5 ">
         <Image className="hover:scale-110" src="/icons/user.png" width={20} height={20} alt="User" />
-        <Image className="hover:scale-110" src="/icons/grocery-store.png" width={20} height={20} alt="Cart" />
+        <div className="relative">
+          <Image className="hover:scale-110" src="/icons/grocery-store.png" width={20} height={20} alt="Cart" />
+          {cart<=0 ? "":<div className="absolute bg-black w-5 h-5 rounded-full text-white flex  justify-center items-center border-2 border-white -top-[10px] -right-[10px]">{cart}</div>}
+        </div>
       </div>
 
       {/* First Page - Home */}
@@ -179,7 +188,7 @@ export default function Home() {
               </div>
               <div className="text-2xl font-bold">Burger + Fries</div>
               <div className="text-xs w-[200px] text-center h-[60px]">A classic combo of a juicy burger and crispy French fries, perfect for a  satisfying meal.</div>
-              <button className=" text-[14px] bg-orange-500 py-2 px-4 rounded-full hover:bg-orange-600 active:opacity-50">Add to Cart</button>
+              <button onClick={handleClick} className=" text-[14px] bg-orange-500 py-2 px-4 rounded-full hover:bg-orange-600 active:opacity-50">Add to Cart</button>
             </div>
 
             <div className=" flex flex-col justify-center items-center gap-3">
@@ -189,7 +198,7 @@ export default function Home() {
               </div>
               <div className="text-2xl font-bold">Double Patty Burger</div>
               <div className="text-xs w-[200px] text-center h-[60px]">A hearty double patty burger stacked with two juicy beef patties, topped with fresh ingredients and melted cheese.</div>
-              <button className=" text-[14px] bg-orange-500 py-2 px-4 rounded-full hover:bg-orange-600 active:opacity-50">Add to Cart</button>
+              <button onClick={handleClick} className=" text-[14px] bg-orange-500 py-2 px-4 rounded-full hover:bg-orange-600 active:opacity-50">Add to Cart</button>
             </div>
 
             <div className=" flex flex-col justify-center items-center gap-3">
@@ -199,7 +208,7 @@ export default function Home() {
               </div>
               <div className="text-2xl font-bold">Heavy Stuffed Burger</div>
               <div className="text-xs w-[200px] text-center h-[60px]">A loaded burger bursting with rich fillings  and toppings, delivering an indulgent and flavorful experience in every bite.</div>
-              <button className=" text-[14px] bg-orange-500 py-2 px-4 rounded-full hover:bg-orange-600 active:opacity-50">Add to Cart</button>
+              <button onClick={handleClick} className=" text-[14px] bg-orange-500 py-2 px-4 rounded-full hover:bg-orange-600 active:opacity-50">Add to Cart</button>
             </div>
 
           </div>
@@ -256,7 +265,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-2xl font-bold">{value.name}</div>
-                <button className="text-[14px] bg-orange-500 py-2 px-4 rounded-full hover:bg-orange-600 active:opacity-50">
+                <button onClick={handleClick} className="text-[14px] bg-orange-500 py-2 px-4 rounded-full hover:bg-orange-600 active:opacity-50">
                   Add to Cart
                 </button>
               </div>
