@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    scrollbar-width: thin;
+    scrollbar-color: white black;
+    transition:ease-in-out;
+    transition-duration: 150ms;
+}
+.tracking-custom{
+    margin-left: 30px;
+    letter-spacing: 20px;
+}
