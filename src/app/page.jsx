@@ -363,7 +363,12 @@ export default function Home() {
             <div className=" text-white flex flex-col justify-center items-center ">
               <div className="tracking-10-no-margin text-[8px] sm:text-[13px] font-extralight">Thank You For Visiting</div>
               <div className="tracking-20-no-margin text-2xl sm:text-6xl font-extrabold">CONTACT US</div>
-              <div className="absolute bottom-[10px] text-xs sm:text-[10px] font-extralight">Made by @itsmeprinceyt</div>
+              <div className="absolute bottom-[10px] text-xs sm:text-[10px] font-extralight">
+                Made by @itsmeprinceyt | &nbsp; 
+                <Link href="https://github.com/itsmeprinceyt/food_shop_nextjs" target="_blank">
+                Repository
+                </Link>
+                </div>
             </div>
           </div>
           <div className="flex justify-center items-center gap-2 sm:gap-2 text-white">
